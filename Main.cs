@@ -1,0 +1,130 @@
+﻿using System.Threading;
+using System;
+using Shoter.Tiles;
+using Shoter.Exception;
+
+namespace Shoter
+{
+    class main
+    {
+        public static int[,] defualtmap = {
+            {0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1},
+            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+            //{0,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0},
+            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+            {0,0,3,0,0,0,3,0,0,0,3,0,0,0,3,0,0,0,3,0},
+            {0,3,3,3,0,3,3,3,0,3,3,3,0,3,3,3,0,3,3,3},
+            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+            {0,0,0,0,0,0,0,0,0,0,4,0,0,0,0,0,0,0,0,0}
+        };
+        public static Tile[] map = new Tile[defualtmap.GetLength(0)*defualtmap.GetLength(1)];
+        static void Main(string[] args)
+        {
+            new main();
+        }
+
+        public main(){
+            //Console.Write(defualtmap.GetLength(1));
+            //return;
+            int w = defualtmap.GetLength(1);
+            for(int y = 0; y < defualtmap.GetLength(0); y++){
+                for(int x = 0; x < defualtmap.GetLength(1); x++){
+                    int num = defualtmap[y,x];
+                    
+                    if(num == new Wall(x,y).getId()){
+                        map[(y*w)+x] = new Wall(x,y);
+                    } else if(num == new Enemie(x,y,0).getId()){
+                        map[(y*w)+x] = new Enemie(x,y,0);
+                    } else if(num == new Enemie(x,y,1).getId()+1){
+                        map[(y*w)+x] = new Enemie(x,y,1);
+                    } else if(num == new EmptyTile(x,y).getId()){
+                        map[(y*w)+x] = new EmptyTile(x,y);
+                    } else if(num == new Player(x,y).getId()){
+                        map[(y*w)+x] = new Player(x,y);
+                    } else{
+                        map[(y*w)+x] = new EmptyTile(x,y);
+                    }
+                }
+            }
+
+            ThreadStart write = new ThreadStart(writeMap);
+            Thread writeThread = new Thread(write);
+            writeThread.Start();
+
+            while(true){
+                Console.SetCursorPosition(0,0);
+                ConsoleKeyInfo key = Console.ReadKey();
+                if(key.Key == ConsoleKey.LeftArrow){
+
+                }
+                Console.SetCursorPosition(0,0);
+                for(int y = 0; y < map.GetLength(0); y++){
+                    
+                }
+            }
+        }
+        public void writeMap(){
+            Console.Clear();
+
+            for(int pos = 0; pos < map.GetLength(0); pos++){
+                Tile tile = map[pos];
+                Console.SetCursorPosition(tile.getX(), tile.getY());
+                //Console.ForegroundColor = tile.GetColor();
+                Console.Write(tile.getIcon());
+            }
+
+            while(true){
+                for(int pos = 0; pos < map.GetLength(0); pos++){
+                    map[pos].reWrite();
+                }
+
+                for(int pos = 0; pos < map.GetLength(0); pos++){
+                    map = map[pos].Move(pos,map);
+                }
+
+                for(int pos = 0; pos < map.GetLength(0); pos++){
+                    Tile tile = map[pos];
+                    Console.SetCursorPosition(tile.getX(), tile.getY());
+                    Console.ForegroundColor = tile.GetColor();
+                    Console.Write(tile.getIcon());
+                }
+                wait(1);
+            }
+        }
+        public static T getFirstItem<T>(T type) where T : Tile{
+            for(int i = 0; i < map.GetLength(0); i++){
+                if(map[i] is T){
+                    return (T) map[i];
+                }
+            }
+            return null;
+        }
+        public static int getPosFromCord(int x, int y){
+            for(int i = 0; i < map.GetLength(0); i++){
+                if(map[i].getX() == x && map[i].getY() == y){
+                    return i;
+                }
+            }
+            throw new NonValidPositionException("Position "+x+" : "+y+" is a non valid position to ask for");
+        }
+        public static void wait(float time)
+        {
+            DateTime timeToEnd = DateTime.Now.AddSeconds(time);
+            //timeToEnd = timeToEnd.AddSeconds(time);
+            DateTime now = DateTime.Now;
+            while (timeToSring(now.Hour, now.Minute, now.Second) != timeToSring(timeToEnd.Hour, timeToEnd.Minute, timeToEnd.Second)) {
+                now = DateTime.Now;
+            }
+        }
+        public static string timeToSring(int H, int M, int S)
+        {
+            return H + ":" + M + ":" + S;
+        }
+    }
+}

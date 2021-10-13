@@ -1,0 +1,14 @@
+/Users/zachariaszellen/Shoter/bin/Debug/net6.0/Shoter.deps.json
+/Users/zachariaszellen/Shoter/bin/Debug/net6.0/Shoter.runtimeconfig.json
+/Users/zachariaszellen/Shoter/bin/Debug/net6.0/Shoter.dll
+/Users/zachariaszellen/Shoter/bin/Debug/net6.0/ref/Shoter.dll
+/Users/zachariaszellen/Shoter/bin/Debug/net6.0/Shoter.pdb
+/Users/zachariaszellen/Shoter/obj/Debug/net6.0/Shoter.csproj.AssemblyReference.cache
+/Users/zachariaszellen/Shoter/obj/Debug/net6.0/Shoter.GeneratedMSBuildEditorConfig.editorconfig
+/Users/zachariaszellen/Shoter/obj/Debug/net6.0/Shoter.AssemblyInfoInputs.cache
+/Users/zachariaszellen/Shoter/obj/Debug/net6.0/Shoter.AssemblyInfo.cs
+/Users/zachariaszellen/Shoter/obj/Debug/net6.0/Shoter.csproj.CoreCompileInputs.cache
+/Users/zachariaszellen/Shoter/obj/Debug/net6.0/Shoter.dll
+/Users/zachariaszellen/Shoter/obj/Debug/net6.0/ref/Shoter.dll
+/Users/zachariaszellen/Shoter/obj/Debug/net6.0/Shoter.pdb
+/Users/zachariaszellen/Shoter/obj/Debug/net6.0/Shoter.genruntimeconfig.cache
