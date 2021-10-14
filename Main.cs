@@ -1,4 +1,5 @@
-﻿using System.Threading;
+﻿using System.Collections.Generic;
+using System.Threading;
 using System;
 using Shoter.Tiles;
 using Shoter.Exception;
@@ -23,7 +24,7 @@ namespace Shoter
             {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
             {0,0,0,0,0,0,0,0,0,0,4,0,0,0,0,0,0,0,0,0}
         };
-        public static Tile[] map = new Tile[defualtmap.GetLength(0)*defualtmap.GetLength(1)];
+        public static List<Tile> map = new List<Tile>();
         static void Main(string[] args)
         {
             new main();
@@ -32,6 +33,7 @@ namespace Shoter
         public main(){
             //Console.Write(defualtmap.GetLength(1));
             //return;
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
             int w = defualtmap.GetLength(1);
             for(int y = 0; y < defualtmap.GetLength(0); y++){
                 for(int x = 0; x < defualtmap.GetLength(1); x++){
@@ -64,7 +66,7 @@ namespace Shoter
 
                 }
                 Console.SetCursorPosition(0,0);
-                for(int y = 0; y < map.GetLength(0); y++){
+                for(int y = 0; y < map.Count; y++){
                     
                 }
             }
@@ -72,7 +74,7 @@ namespace Shoter
         public void writeMap(){
             Console.Clear();
 
-            for(int pos = 0; pos < map.GetLength(0); pos++){
+            for(int pos = 0; pos < map.Count; pos++){
                 Tile tile = map[pos];
                 Console.SetCursorPosition(tile.getX(), tile.getY());
                 //Console.ForegroundColor = tile.GetColor();
@@ -80,15 +82,15 @@ namespace Shoter
             }
 
             while(true){
-                for(int pos = 0; pos < map.GetLength(0); pos++){
+                for(int pos = 0; pos < map.Count; pos++){
                     map[pos].reWrite();
                 }
 
-                for(int pos = 0; pos < map.GetLength(0); pos++){
+                for(int pos = 0; pos < map.Count; pos++){
                     map = map[pos].Move(pos,map);
                 }
 
-                for(int pos = 0; pos < map.GetLength(0); pos++){
+                for(int pos = 0; pos < map.Count; pos++){
                     Tile tile = map[pos];
                     Console.SetCursorPosition(tile.getX(), tile.getY());
                     Console.ForegroundColor = tile.GetColor();
@@ -98,7 +100,7 @@ namespace Shoter
             }
         }
         public static T getFirstItem<T>(T type) where T : Tile{
-            for(int i = 0; i < map.GetLength(0); i++){
+            for(int i = 0; i < map.Count; i++){
                 if(map[i] is T){
                     return (T) map[i];
                 }
@@ -106,7 +108,7 @@ namespace Shoter
             return null;
         }
         public static int getPosFromCord(int x, int y){
-            for(int i = 0; i < map.GetLength(0); i++){
+            for(int i = 0; i < map.Count; i++){
                 if(map[i].getX() == x && map[i].getY() == y){
                     return i;
                 }

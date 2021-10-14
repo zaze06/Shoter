@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System;
 namespace Shoter.Tiles
 {
@@ -13,7 +14,7 @@ namespace Shoter.Tiles
         public override ConsoleColor GetColor(){
             return ConsoleColor.Red;
         }
-        public override Tile[] Move(int pos, Tile[] map){
+        public override List<Tile> Move(int pos, List<Tile> map){
             map[pos] = new EmptyTile(x,y);
             return map;
         }

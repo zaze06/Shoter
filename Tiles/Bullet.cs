@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System;
 namespace Shoter.Tiles
 {
@@ -17,8 +18,8 @@ namespace Shoter.Tiles
         public override ConsoleColor GetColor(){
             return ConsoleColor.Red;
         }
-        public override Tile[] Move(int pos, Tile[] map){
-            if(y == map.GetLength(0)-1){
+        public override List<Tile> Move(int pos, List<Tile> map){
+            if(y == map.Count-1){
                 map[pos] = new EmptyTile(x,y);
                 haveMoved = true;
             }
@@ -43,13 +44,13 @@ namespace Shoter.Tiles
 
             return map;
         }
-        public new Tile[] Shot(int pos, Tile[] map, bool PlayerBullet){
+        public override List<Tile> Shot(int pos, List<Tile> map, bool PlayerBullet){
             if(PlayerBullet){
                 map[pos] = new EmptyTile(x,y);
             }
             return map;
         }
-        public new void reWrite(){
+        public override void reWrite(){
             haveMoved = false;
         }
     }

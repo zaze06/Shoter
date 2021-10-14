@@ -1,9 +1,9 @@
+using System.Collections.Generic;
 using System;
 namespace Shoter.Tiles
 {
     public class Enemie : Tile
     {
-        static int counter = 0;
         int moveWay = 0;
         int dir = -1;
         bool haveMoved = false;
@@ -15,19 +15,17 @@ namespace Shoter.Tiles
             if(moveWay == 1){
                 dir *= -1;
             }
-            me = counter;
-            counter++;
         }
         public override int getId(){
             return 1;
         }
         public override string getIcon(){
-            return "⤋";
+            return ((char)31)+"";
         }
         public override ConsoleColor GetColor(){
             return ConsoleColor.Red;
         }
-        public override Tile[] Move(int pos, Tile[] map){
+        public override List<Tile> Move(int pos, List<Tile> map){
             if(haveMoved) return map;
 
             if(lastShot > coolDown){
@@ -36,7 +34,8 @@ namespace Shoter.Tiles
             }
 
             map[pos] = new EmptyTile(x,y);
-            map[main.getPosFromCord(x+dir,y)] = this;
+            x+=dir;
+            map[main.getPosFromCord(x,y)] = this;
             dir *= -1;
             
 
@@ -44,10 +43,7 @@ namespace Shoter.Tiles
             haveMoved = true;
             return map;
         }
-        public Tile[,] Shot(int x, int y, Tile[,] map, bool PlayerBullet){
-            return map;
-        }
-        public void reWrite(){
+        public override void reWrite(){
             haveMoved = false;
             lastShot++;
         }

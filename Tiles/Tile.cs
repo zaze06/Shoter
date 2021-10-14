@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System;
 
 namespace Shoter.Tiles
@@ -7,23 +8,21 @@ namespace Shoter.Tiles
         protected int x;
         protected int y;
         public abstract int getId();
-        protected int me = -1;
-        protected int counter = 0;
         public abstract string getIcon();
         public abstract ConsoleColor GetColor();
-        public virtual Tile[] Move(int pos, Tile[] map){
+        public virtual List<Tile> Move(int pos, List<Tile> map){
             return map;
         }
-        public Tile[] Shot(int pos, Tile[] map, bool PlayerBullet){
+        public virtual List<Tile> Shot(int pos, List<Tile> map, bool PlayerBullet){
             return map;
         }
-        public void reWrite(){
+        public virtual void reWrite(){
 
         }
-        public int getX(){
+        public virtual int getX(){
             return x;
         }
-        public int getY(){
+        public virtual int getY(){
             return y;
         }
         protected Tile(int x1, int y1){

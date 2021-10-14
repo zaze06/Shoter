@@ -12,7 +12,7 @@ namespace Shoter.Tiles
             y += y1;
         }
         public override string getIcon(){
-            return "⥣";
+            return "&";
         }
         public override ConsoleColor GetColor(){
             return ConsoleColor.DarkCyan;

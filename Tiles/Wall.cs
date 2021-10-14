@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System;
 namespace Shoter.Tiles
 {
@@ -10,12 +11,12 @@ namespace Shoter.Tiles
             return 3;
         }
         public override string getIcon(){
-            return "◼︎";
+            return "#";
         }
         public override ConsoleColor GetColor(){
             return ConsoleColor.Red;
         }
-        public Tile[] Shot(int pos, Tile[] map, bool PlayerBullet){
+        public override List<Tile> Shot(int pos, List<Tile> map, bool PlayerBullet){
             if(dmg >= hp){
                 map[pos] = new EmptyTile(x,y);
                 return map;
