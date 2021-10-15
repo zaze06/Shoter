@@ -7,7 +7,7 @@ namespace Shoter.Tiles
         Tile TileOn = null;
         bool haveMoved = false;
         public Bullet(int x, int y) : base(x,y){
-            new EmptyTile(x,y);
+            TileOn = new EmptyTile(x,y);
         }
         public override int getId(){
             return 4;

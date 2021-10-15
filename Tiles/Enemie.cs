@@ -29,7 +29,7 @@ namespace Shoter.Tiles
             if(haveMoved) return map;
 
             if(lastShot > coolDown){
-                map[pos] = new Bullet(x,y);
+                map[main.getPosFromCord(x,y+1)] = new Bullet(x,y);
                 lastShot = 0;
             }
 

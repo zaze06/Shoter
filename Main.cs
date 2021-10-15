@@ -40,17 +40,17 @@ namespace Shoter
                     int num = defualtmap[y,x];
                     
                     if(num == new Wall(x,y).getId()){
-                        map[(y*w)+x] = new Wall(x,y);
+                        map.Add(new Wall(x,y));
                     } else if(num == new Enemie(x,y,0).getId()){
-                        map[(y*w)+x] = new Enemie(x,y,0);
+                        map.Add(new Enemie(x,y,0));
                     } else if(num == new Enemie(x,y,1).getId()+1){
-                        map[(y*w)+x] = new Enemie(x,y,1);
+                        map.Add(new Enemie(x,y,1));
                     } else if(num == new EmptyTile(x,y).getId()){
-                        map[(y*w)+x] = new EmptyTile(x,y);
+                        map.Add(new EmptyTile(x,y));
                     } else if(num == new Player(x,y).getId()){
-                        map[(y*w)+x] = new Player(x,y);
+                        map.Add(new Player(x,y));
                     } else{
-                        map[(y*w)+x] = new EmptyTile(x,y);
+                        map.Add(new EmptyTile(x,y));
                     }
                 }
             }
@@ -59,7 +59,7 @@ namespace Shoter
             Thread writeThread = new Thread(write);
             writeThread.Start();
 
-            while(true){
+            /*while(true){
                 Console.SetCursorPosition(0,0);
                 ConsoleKeyInfo key = Console.ReadKey();
                 if(key.Key == ConsoleKey.LeftArrow){
@@ -69,7 +69,7 @@ namespace Shoter
                 for(int y = 0; y < map.Count; y++){
                     
                 }
-            }
+            }*/
         }
         public void writeMap(){
             Console.Clear();

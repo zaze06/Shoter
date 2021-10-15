@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "/Users/zachariaszellen/Shoter/Shoter.csproj": {}
+    "C:\\Users\\zacha\\Shoter\\Shoter.csproj": {}
   },
   "projects": {
-    "/Users/zachariaszellen/Shoter/Shoter.csproj": {
+    "C:\\Users\\zacha\\Shoter\\Shoter.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/zachariaszellen/Shoter/Shoter.csproj",
+        "projectUniqueName": "C:\\Users\\zacha\\Shoter\\Shoter.csproj",
         "projectName": "Shoter",
-        "projectPath": "/Users/zachariaszellen/Shoter/Shoter.csproj",
-        "packagesPath": "/Users/zachariaszellen/.nuget/packages/",
-        "outputPath": "/Users/zachariaszellen/Shoter/obj/",
+        "projectPath": "C:\\Users\\zacha\\Shoter\\Shoter.csproj",
+        "packagesPath": "C:\\Users\\zacha\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\zacha\\Shoter\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/zachariaszellen/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\zacha\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -52,7 +54,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.100-preview.6.21355.2/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100-preview.6.21355.2\\RuntimeIdentifierGraph.json"
         }
       }
     }

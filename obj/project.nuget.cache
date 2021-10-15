@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "4h0Rrk+jjs7BRZyzUc6Vcyp89aEzsFvGBaco+cpdEhEzpfR2xmz4LsaxiJmw7jWuUulNFZ+a2VY+srbo7Jhx/Q==",
+  "dgSpecHash": "hYRr3gUEopLfcSJ1+uQxQ/bW75QjrRZUTvkt/0UTzLXL2JyyCB4QC5mDtorkzfdsBH8VBAerDKjPLFJoVSC0ZQ==",
   "success": true,
-  "projectFilePath": "/Users/zachariaszellen/Shoter/Shoter.csproj",
+  "projectFilePath": "C:\\Users\\zacha\\Shoter\\Shoter.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
