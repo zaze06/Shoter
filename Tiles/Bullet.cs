@@ -25,14 +25,14 @@ namespace Shoter.Tiles
             }
             if(haveMoved) return map;
             map[pos] = TileOn;
-            y++;
-            pos = main.getPosFromCord(x,y);
+            //y++;
+            pos = main.getPosFromCord(x,y+1);
             TileOn = map[pos];
             if(TileOn is Particle){
-                TileOn = new EmptyTile(x,y);
+                TileOn = new EmptyTile(x,y+1);
             }
             if(!(TileOn is EmptyTile)){
-                map[pos] = new EmptyTile(x,y);
+                map[pos] = new EmptyTile(x,y+1);
                 map = TileOn.Shot(pos, map, false);
                 return map;
             }
